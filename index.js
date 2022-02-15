@@ -1,5 +1,17 @@
 const app = require('express')();
+const mysql = require('mysql');
 const server = require("http").createServer(app);
+
+
+const db = mysql.createConnection({
+    user:"root",
+    host:"localhost",
+    password:"password",
+    database:"RegistrationSystem",
+});
+
+
+
 const cors = require('cors')
 const io = require("socket.io")(server, {
     cors:{
@@ -9,7 +21,7 @@ const io = require("socket.io")(server, {
     }
 });
 
-
+// app.use()
 app.use(cors());
 
 
